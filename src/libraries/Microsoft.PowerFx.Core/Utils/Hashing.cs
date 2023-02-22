@@ -15,6 +15,16 @@ namespace Microsoft.PowerFx.Core.Utils
             return (int)CombineHash((uint)n1, (uint)n2);
         }
 
+        public static uint CombineHash(uint u1, uint u2, uint u3)
+        {
+            return CombineHash(CombineHash(u1, u2), u3);
+        }
+
+        public static uint CombineHash(uint u1, uint u2, uint u3, uint u4)
+        {
+            return CombineHash(CombineHash(u1, u2), CombineHash(u3, u4));
+        }
+
         public static uint CombineHash(uint u1, uint u2, uint u3, uint u4, uint u5)
         {
             return (((u1 << 7) | (u1 >> 25)) ^ u2) ^ (((u3 << 15) | (u3 >> 17)) ^ u4) ^ (u5 << 5);
